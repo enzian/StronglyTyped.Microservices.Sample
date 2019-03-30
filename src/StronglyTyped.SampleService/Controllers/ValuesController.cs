@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StronglyTyped.SampleService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/v1/values")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace StronglyTyped.SampleService.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get([FromRoute(Name = "id")] int id)
         {
             return "value";
         }
@@ -38,7 +38,7 @@ namespace StronglyTyped.SampleService.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete([FromRoute(Name = "id")] int id)
         {
         }
     }
