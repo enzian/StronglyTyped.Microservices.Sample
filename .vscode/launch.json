@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/src/StronglyTyped.SampleService/bin/Debug/netcoreapp2.2/StronglyTyped.SampleService.dll",
-            "args": [],
+            "args": ["/MySetting:SomeValue=123"],
             "cwd": "${workspaceFolder}/src/StronglyTyped.SampleService",
             "stopAtEntry": false,
             "launchBrowser": {

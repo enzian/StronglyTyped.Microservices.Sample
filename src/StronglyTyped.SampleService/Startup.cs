@@ -15,9 +15,14 @@ namespace StronglyTyped.SampleService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
-            Configuration = configuration;
+            Configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{environment.EnvironmentName}", optional: true)
+                .AddEnvironmentVariables()
+                .AddConfiguration(configuration)
+                .Build();
         }
 
         public IConfiguration Configuration { get; }
